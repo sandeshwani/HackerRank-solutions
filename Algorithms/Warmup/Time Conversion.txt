@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String time = in.next();
+        in.close();
+        if (time.toLowerCase().contains("am")){
+        	//learned new thing below. how split works.
+        	time =time.toLowerCase().replace("am", "");
+        	String[] timeArr =time.split(":");
+        	if (timeArr[0].equals("12")){
+        		time = "00"+":"+timeArr[1]+":"+timeArr[2];
+        	}
+        	
+        	else time = timeArr[0]+":"+timeArr[1]+":"+timeArr[2];
+        	
+        }
+        
+        
+        if (time.toLowerCase().contains("pm")){
+        	//learned new thing below. how split works.
+        	time = time.toLowerCase().replace("pm", "");
+        	String[] timeArr =time.split(":");
+        	if (timeArr[0].equals("12")){
+        		time = timeArr[0]+":"+timeArr[1]+":"+timeArr[2];
+        	}
+        	else timeArr[0]= Integer.toString(Integer.valueOf(timeArr[0]) + 12);
+        	time = timeArr[0]+":"+timeArr[1]+":"+timeArr[2];
+        }
+        System.out.println(time);
+        
+    }
+}
+

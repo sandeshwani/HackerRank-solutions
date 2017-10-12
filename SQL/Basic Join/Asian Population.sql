@@ -26,3 +26,9 @@ SELECT SUM(POPULATION)
 FROM CITY 
 WHERE COUNTRYCODE IN
 (SELECT CODE FROM COUNTRY WHERE CONTINENT = 'Asia')
+
+
+/*Using where condition, dont known about the performance*/
+select Sum(c.population)
+from city c inner join country t on c.countrycode = t.code
+where continent = 'asia';

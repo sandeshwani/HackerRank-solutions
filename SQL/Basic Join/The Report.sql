@@ -70,3 +70,14 @@ select if(grade > 7, name, null), grade, marks
 from students, grades 
 where marks between min_mark and max_mark 
 order by grade desc, name
+
+/*USING WHERE */
+SELECT CASE
+        WHEN G.GRADE < 8 THEN 'NULL'
+        ELSE S.NAME
+        END, 
+        G.GRADE, S.MARKS
+FROM STUDENTS S
+INNER JOIN GRADES G ON S.MARKS 
+WHERE S.MARKS BETWEEN G.MIN_MARK AND G.MAX_MARK
+ORDER BY G.GRADE DESC, S.NAME ASC;
